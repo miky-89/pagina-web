@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechSpot - Detalle de Producto</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
+        <a class="navbar-brand text-white" href="#">TechSpot</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link text-white" href="index.html">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="product-list.html">Productos</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="cart.html">Carrito</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="login.html">Iniciar Sesión</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1>Detalle del Producto</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="images/default.jpg" class="img-fluid" alt="Imagen del Producto">
+            </div>
+            <div class="col-md-6">
+                <h2>Nombre del Producto</h2>
+                <p>Descripción detallada del producto.</p>
+                <p>Precio: $0.00</p>
+                <button class="btn btn-success" onclick="addToCart('Nombre del Producto', 0)">Agregar al
+                    Carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer mt-5">
+        <p>© 2024 TechSpot. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productParam = urlParams.get('product');
+
+            const products = {
+                product1: {
+                    name: "Proyector 200W LED IP66 IK08 Luz Fría 120lm/w Duralux",
+                    description: "Potencia 200W LED, Eficiencia 120 Lm/W (24.000Lm), Voltaje 220~240V AC 50/60 Hz, Factor de potencia 0,95, Cuerpo de aluminio, Bracket de acero, Difusor de vidrio, Temperatura de color, 5700ºK (luz fría), Grado de protección IP66, Resistencia a impactos IK08, Vida útil 30.000 hrs, Ángulo de luz 110º, Rango de temperatura -20ºC a 40ºC, CRI 80, Marca Duralux, Chip LED, SMD2835, THD >14%.",
+                    price: 31900,
+                    image: "images/producto1.jpeg"
+                },
+                product2: {
+                    name: "Campana Ufo LED rectangular High Bay 160W IP20 6500K Philips",
+                    description: "Potencia 160W, Temperatura de color 6500°K, 20.600 Lúmenes, Protección IP20, Resistencia a impactos IK03, Vida útil 70.000 hrs.",
+                    price: 135900,
+                    image: "images/producto2.jpeg"
+                },
+                product3: {
+                    name: "Ench. ind. macho volante 16A 2P+T 220V IP44 6h",
+                    description: "Enchufe Industrial Macho azul, 16 amperes 2P+T 6H, Voltaje 220V, Protección IP44, Estándar IEC60309-1-2, Dimensiones (mm) alto 47 x ancho 47 largo 118.",
+                    price: 1600,
+                    image: "images/producto3.jpeg"
+                },
+                product4: {
+                    name: "Int. Automático tetrapolar 4X 10A, curva C, 6KA",
+                    description: "Estándares: IEC 60898-1, IEC 60947-2, Aprobaciones: CE, SEMKO, CB, Corriente nominal en: 4x 10A, Tensión nominal Un 230/400V AC, 6 Kiloamperios, Número de polos: 4.",
+                    price: 9900,
+                    image: "images/producto4.jpeg"
+                },
+                product5: {
+                    name: "Ench. ind. multiplicador 16A 3P+T 380V IP44 3 salidas",
+                    description: "Enchufe Industrial multiplicador 16A 3P+T 380V 3 salidas, 3 Salidas  16A 3P+T 16A 6H, Grado de protección IP44, Voltaje 380V 50-60HZ , Libre de halógenos según EN 60754-2.",
+                    price: 11290,
+                    image: "images/producto5.jpeg"
+                }
+            };
+
+
+            const product = products[productParam];
+
+            if (product) {
+                document.querySelector('h1').textContent = `Detalle del producto`;
+                document.querySelector('img').src = product.image;
+                document.querySelector('img').alt = product.name;
+                document.querySelector('.col-md-6 h2').textContent = product.name;
+                document.querySelector('.col-md-6 p').textContent = product.description;
+                document.querySelector('.col-md-6 p + p').textContent = `Precio: $${product.price.toLocaleString('es-CL')}`;
+                document.querySelector('.col-md-6 .btn-success').setAttribute('onclick', `addToCart('${product.name}', ${product.price})`);
+            } else {
+                document.querySelector('h1').textContent = 'Producto no encontrado';
+                document.querySelector('.container .row').style.display = 'none';
+            }
+        });
+
+        function addToCart(productName, productPrice) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ name: productName, price: productPrice });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert('Producto agregado al carrito!');
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,150 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+}
+
+.logo-container {
+    background-color: #ffffff; /* Fondo blanco para el logo */
+    text-align: center;
+    padding: 15px 0;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera para separación */
+}
+
+.logo-container .navbar-brand {
+    color: #007bff !important; /* Texto azul para el logo */
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navbar {
+    background-color: #ffffff !important; /* Fondo blanco para la barra de navegación */
+    padding: 0; /* Ajuste de padding */
+    justify-content: center; /* Centrar los elementos de la barra de navegación */
+    border: none; /* Eliminar bordes si hay alguno */
+    box-shadow: none; /* Eliminar cualquier sombra */
+}
+
+.navbar-toggler-icon {
+    background-color: #fff;
+}
+
+.navbar-nav {
+    margin: 0 auto; /* Asegura que los elementos estén centrados */
+}
+
+.nav-link {
+    color: #007bff !important; /* Cambia el color del texto a azul */
+    font-weight: 500;
+    padding: 10px 15px; /* Mantiene el padding para que se vean como botones */
+    margin-left: 0; /* Elimina espacio extra entre los botones */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
+}
+
+.nav-link:hover {
+    background-color: #ffa07a !important; /* Fondo naranja suave al pasar el mouse */
+    color: #ffffff !important; /* Cambia el color del texto al pasar el mouse a blanco */
+    border-radius: 5px; /* Bordes redondeados para parecer botones */
+}
+
+.container {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    max-width: 200px;
+    /* Limita el ancho máximo de la tarjeta */
+    margin: 0 auto;
+    /* Centra la tarjeta */
+}
+
+.card img {
+    max-width: 100%;
+    /* Asegura que la imagen no exceda el tamaño de la tarjeta */
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.card-title {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+    text-align: center;
+    /* Centra el título del producto */
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+    /* Centra el texto del producto */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    border-radius: 50px;
+    padding: 5px 50px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.footer {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 50px;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
